@@ -9,17 +9,22 @@ export const MainContainer = styled.div`
     align-items: center;
     justify-content: space-around;
 
-    min-height: 90vh;
+    height: 90vh;
 `
 
 export const MainWrapper = styled.div`
-    
+    width: 80%;
+    margin: 0 auto;
 `
 
 export const MainInputBox = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+`
+
+export const InputBox = styled.div`
+    margin-bottom: .6rem;
 `
 
 export const Input = styled.input`
@@ -31,7 +36,7 @@ export const Input = styled.input`
     border: 2px solid var(--white);
     font-size: 1.2rem;
     text-align: center;
-    margin-bottom: .6rem;
+    
 
     &::placeholder {
         font-style: italic;
