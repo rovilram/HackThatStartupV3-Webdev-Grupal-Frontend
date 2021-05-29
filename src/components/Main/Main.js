@@ -2,7 +2,12 @@ import React from 'react';
 
 import {
 
-    MainContainer
+    MainContainer,
+    MainWrapper,
+    MainInputBox,
+    Input,
+    MainBtn,
+    BtnSearch
 
 } from './MainElements';
 
@@ -16,12 +21,14 @@ export const Main = () => {
                 <MainWrapper>
 
                     <MainInputBox>
-                        <Input />
-                    </MainInputBox>
+                    
+                    <Input placeholder='Who are you in GitHub?'/>
 
                     <MainBtn>
-                        <BtnSearch>Search</BtnSearch>
+                        <BtnSearch> Search </BtnSearch>
                     </MainBtn>
+
+                    </MainInputBox>
 
                 </MainWrapper>
 

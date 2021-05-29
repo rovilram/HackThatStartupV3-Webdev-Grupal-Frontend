@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
-    background-color: lightseagreen;
-    height: 6rem;
+    background-color: var(--primary-color);
+    height: 10vh;
     display: flex;
     align-items: center;
 `
@@ -30,7 +30,7 @@ export const Logo = styled.h1`
     
 `
 export const MobileIconBox = styled.div`
-    color: #fff;
+    color: var(--white);
     font-size: 1.6rem;
     cursor: pointer;
 `
