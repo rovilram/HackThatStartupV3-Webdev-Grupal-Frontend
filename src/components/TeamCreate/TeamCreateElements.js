@@ -21,7 +21,7 @@ export const TeamTitle = styled.h1`
     text-transform: uppercase;
 
     @media screen and (min-width: 960px) {
-        padding: 4rem 0;
+        padding: 4rem;
     }
 `
 
@@ -51,7 +51,7 @@ export const InputTitle = styled.h3`
 
 export const Input = styled.input`
     color: var(--tertiary-color);
-    width: 15rem;
+    width: 100%;
     padding: .6rem;
     border-radius: 2rem;
     outline: none;
@@ -60,7 +60,9 @@ export const Input = styled.input`
     text-align: center;
     margin-bottom: 1.2rem;
     align-self: center;
-    
+    @media all and (min-width: 960px) {
+        width:15rem;
+    }
 
     &::placeholder {
         font-style: italic;

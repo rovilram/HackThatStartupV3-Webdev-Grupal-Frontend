@@ -28,15 +28,20 @@ export const TeamCreate = () => {
 
     const handleInputValue = (e) => setUser({user: e.target.value} );
 
-    const handleAddUser = (e) => {
+    // Enviar la petición a la API de GitHub
+    const handleFetch = async (e) => {
+
         e.preventDefault();
+        const response = await fetch(`https://api.github.com/users/${user.user}/repos`);
+        const data = await response.json();
+        console.log(data);
         
-    };
+    }
 
     return (
         <>
 
-            <TeamContainer>
+            <TeamContainer onSubmit={handleFetch}>
 
                 <TeamWrapper>
 
@@ -63,7 +68,7 @@ export const TeamCreate = () => {
 
                         <InputBtnBox>
                             <Input onChange={handleInputValue}/>
-                            <BtnAdd onClick={handleAddUser}> Añadir </BtnAdd>
+                            <BtnAdd> Añadir </BtnAdd>
                         </InputBtnBox>
 
                     </InputFieldBox>
@@ -82,4 +87,3 @@ export const TeamCreate = () => {
     );
 
 };
-
