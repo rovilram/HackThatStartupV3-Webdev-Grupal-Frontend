@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
+import to from 'await-to-js';
 
 // Context para logados / no logados
 import LoggedContext from './../../context/loggedContext'
 
 import {
-    
     InitContainer,
     InitWrapper,
     InitHeader,
@@ -16,77 +16,83 @@ import {
     SignupAdvice,
     Advice,
     ErrorMsg
-    
-
 } from './InitElements';
 
 import {
-    
-    BtnSearch, 
+    BtnSearch,
     Input
-
 } from './../Main/MainElements';
+import axios from 'axios';
 
 
 
 export const Init = () => {
-
-    // Context de estar o no logado
-    const {logged, setLogged} = useContext(LoggedContext);
-
-    // Estado para saber qué página renderizar
-    const [signup, setSignup] = useState(true);
-
-    // History para direccionar
     const history = useHistory();
-
-    // Estado para valores de formulario
-    const [mail, setMail] = useState({mail: ''} );
-    const [pass, setPass] = useState({pass: ''} );
-    const [userName, setUserName] = useState({userName: ''} );
-    const [gitName, setGitName] = useState({gitName: ''} );
-
+    // Context de estar o no logado
+    const { setLogged } = useContext(LoggedContext);
     // Manejo de errores al enviar la información
     const [error, setError] = useState(false);
+    // Estado para saber qué página renderizar
+    const [login, setLogin] = useState(true);
 
-    const handleForm = (e) => {
 
-        e.preventDefault();
-        if(mail.mail === 'chris@io.com'  && pass.pass === 'nuwe') {
-            setLogged(true);
-            history.push('/home');
-            
-        } else {
-            setError(true);
-            setTimeout(() => {
-                setError('')
-            }, 3000);
-        };
+    const [loginData, setLoginData] = useState({
+        username: '',
+        password: ''
+    });
 
-        setMail({mail: ''});
-        setPass({pass: ''});
-        setUserName({userName: ''});
-        setGitName({gitName: ''});
+    const [logupData, setLogupData] = useState({
+        username: '',
+        password: '',
+        email: ''
+    });
+
+    const handleLogin = (e) => {
+        setLoginData({
+            ...loginData,
+            [e.target.name]: e.target.value
+        });
     };
-                
-            
-    // Recogemos el valor del campo mail
-    const handleMail = (e) => setMail({mail: e.target.value} );
 
-    // Recogemos el valor del campo pass
-    const handlePass = (e) => setPass({pass: e.target.value} );
+    const handleSignup = (e) => {
+        setLogupData({
+            ...logupData,
+            [e.target.name]: e.target.value
+        });
+    };
 
-    // Recogemos el valor del campo de nombre de usuario
-    const handleUserName = (e) => setUserName({userName: e.target.value} );
+    const handleForm = async (e) => {
+        e.preventDefault();
 
-    // Recogemos el valor del campo de mail de github
-    const handleGitName = (e) => setGitName({gitName: e.target.value} );
+        if (login) {
+            const [err, response] = await to(axios.post('http://localhost:3000/api/user/login', loginData));
+            if (err) {
+                setError(true);
+                setTimeout(() => {
+                    setError('')
+                }, 3000);
+            } else {
+                console.log(response.data);
+                setLogged(true);
+                history.push('/home');
+            }
+        } else {
+            const [err, response] = await to(axios.post('http://localhost:3000/api/user/register', logupData));
+            if (err) {
+                setError(true);
+                setTimeout(() => {
+                    setError('')
+                }, 3000);
+            } else {
+                console.log(response.data);
+                history.push('/');
+            }
+        }
 
+    };
 
     // Enviaríamos la info del formulario a back
-    const handleSignup = () => setSignup(false);
-
-
+    // const handleSignup = () => setSignup(false);
 
     return (
 
@@ -102,48 +108,51 @@ export const Init = () => {
                     <InitMain>
 
                         <InputBox onSubmit={handleForm}>
-                            
-                            {
-                                signup
-                                    ?  <>
-                                            <Input value={mail.mail} onChange={handleMail} placeholder='Give me a valid mail' />
-                                            <Input value={pass.pass} onChange={handlePass} placeholder='And a valid pass ;)' />
-                                        </> 
 
-                                    :  <>
-                                            <Input value={userName.userName} onChange={handleUserName} placeholder='Give me a user name' />
-                                            <Input value={gitName.gitName} onChange={handleGitName} placeholder='Ok, now a github user name' />
-                                            <Input value={mail.mail} onChange={handleMail} placeholder='Your github mail' />
-                                            <Input value={pass.pass} onChange={handlePass} placeholder='And a valid pass ;)' />
-                                        </>
-                                        
+                            {
+                                login
+                                    ? <>
+                                        <Input type="test" name='username' value={loginData.username} onChange={handleLogin} placeholder='Username' />
+                                        <Input type='password' name='password' value={loginData.password} onChange={handleLogin} placeholder='Password' />
+                                    </>
+
+                                    : <>
+                                        {/* <Input value={userName} placeholder='Give me a user name' /> */}
+                                        <Input type="text" name="username" onChange={handleSignup} value={logupData.username} placeholder='GitHub username' />
+                                        <Input type='email' name='email' onChange={handleSignup} value={logupData.email} placeholder='GitHub email' />
+                                        <Input type='password' name='password' onChange={handleSignup} value={logupData.password} placeholder='Password' />
+                                    </>
+
                             }
 
-                            
 
-                            
+
+
                             <BtnInitBox>
-                                <BtnSearch> Here we go </BtnSearch>
+                                <BtnSearch type="submit"> Here we go </BtnSearch>
                             </BtnInitBox>
 
-                            <ErrorMsg> {error ? 'Something go wrong, let´s try again'  :  null} </ErrorMsg>
+                            <ErrorMsg> {error ? 'Something go wrong, let´s try again' : null} </ErrorMsg>
 
                             <SignupAdvice>
-                                <Advice> You´re not one of us yet? <span onClick={handleSignup}>C´mon</span> </Advice>
+                                {login ?
+                                    <Advice> You´re not one of us yet? <span onClick={() => setLogin(false)}>C´mon</span> </Advice> :
+                                    <Advice> You already have an account <span onClick={() => setLogin(true)}>Login</span> </Advice>
+                                }
                             </SignupAdvice>
 
                         </InputBox>
 
-                        
+
 
                     </InitMain>
 
-                    
+
 
                 </InitWrapper>
 
             </InitContainer>
         </>
     )
-    
+
 }
