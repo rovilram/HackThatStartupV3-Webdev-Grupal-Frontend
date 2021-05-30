@@ -12,21 +12,24 @@ export const CardBox = styled.div`
 
     @media all and (min-width: 960px) {
         flex-direction: row;
-        margin-bottom: 4rem;
         height: 18rem;
         align-items: center;
+        margin: 0 2rem 4rem;
+    }
+    @media all and (min-width: 1480px) {
+        max-width: 40rem;
     }
 `;
 
 export const ImageWrapper = styled.div`
-    background-color: red;
+    background-color: var(--secondary-color);
     width: 100%;
     height: 150px;
     overflow: hidden;
 
     @media all and (min-width: 960px) {
         background-color: red;
-        width: 150px;
+        width:20vw;
         overflow: hidden;
         height: 100%;
     }
@@ -37,7 +40,7 @@ export const ImageWrapper = styled.div`
             width: auto;
             height: 100%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-30%);
         }
         
     }

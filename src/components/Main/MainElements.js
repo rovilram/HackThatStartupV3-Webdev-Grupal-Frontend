@@ -26,10 +26,17 @@ export const MainWrapper = styled.div`
 
 export const MainTitle = styled.h1`
     color: rgba(0,0,0,0.7);
-    width: 30rem;
+    width: auto;
     text-align: center;
     margin-bottom: 2rem;
-    height: 10rem;
+    height: auto;
+    font-size: 1.8rem;
+ 
+    @media all and (min-width: 960px) {
+        width:${(props)=> props.limitedWidth ? props.limitedWidth : null};
+        font-size: 2.5rem;
+    }
+
 `
 
 export const MainInputBox = styled.div`
