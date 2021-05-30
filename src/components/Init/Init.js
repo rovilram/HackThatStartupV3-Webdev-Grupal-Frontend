@@ -3,13 +3,11 @@ import { useHistory } from 'react-router-dom';
 import to from 'await-to-js';
 
 // Context para logados / no logados
-import LoggedContext from './../../context/loggedContext'
+import LoggedContext from './../../context/loggedContext';
 
 import {
     InitContainer,
     InitWrapper,
-    InitHeader,
-    InitTitle,
     InitMain,
     InputBox,
     BtnInitBox,
@@ -20,8 +18,9 @@ import {
 
 import {
     BtnSearch,
-    Input
 } from './../Main/MainElements';
+import { HeaderLogoBox, Logo } from '../Header/HeaderElements';
+import { Input } from '../TeamCreate/TeamCreateElements';
 import axios from 'axios';
 
 
@@ -101,9 +100,9 @@ export const Init = () => {
 
                 <InitWrapper>
 
-                    <InitHeader>
-                        <InitTitle> FakeHub </InitTitle>
-                    </InitHeader>
+                    <HeaderLogoBox isSidebar>
+                        <Logo isSidebar>Fake<span style={{color:'rgba(0,0,0, 0.7'}}>H</span>ub</Logo>
+                    </HeaderLogoBox>
 
                     <InitMain>
 

@@ -30,7 +30,7 @@ export const Main = () => {
 
                     <MainInputBox>
 
-                    <MainTitle> Busca, encuentra y selecciona a tus futuros compañeros de equipo </MainTitle>
+                    <MainTitle limitedWidth='560px'> Busca, encuentra y selecciona a tus futuros compañeros de equipo </MainTitle>
                     <MainBtn onClick={goToCreateTeam}> Comienza </MainBtn>
 
                     </MainInputBox>

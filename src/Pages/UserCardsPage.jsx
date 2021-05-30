@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { CreditCard } from '../components/CreaditCard/CreditCard';
 import { CardAddForm } from '../components/CardAddForm/CardAddForm';
-import { Sidebar } from './../components/Sidebar/Sidebar';
+import { MainTitle } from '../components/Main/MainElements';
+import { Btn } from '../components/CardAddForm/CardAddFormElements';
 import styled from 'styled-components';
 import validator from 'validator';
 import to from 'await-to-js';
 import axios from 'axios';
 
 const ContentWrapper = styled.section`
-  background-color: #ffffff;
+  background-color:  var(--tertiary-color);
   min-height: 100vh;
+  padding-bottom: 4rem;
 
   @media all and (min-width: 960px) {
     position: absolute;
@@ -24,11 +26,11 @@ const ContentWrapper = styled.section`
 `;
 
 const CreditCardAddWrapper = styled.div`
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 2rem;
+  padding: 2rem 2rem 4rem;
   margin-bottom: 2rem;
 
   @media all and (min-width: 960px) {
@@ -81,9 +83,9 @@ export const UserCardsPage = (props) => {
   const [creditCards, setCreditCards] = useState([]);
   const toggle = () => setIsOpen(!isOpen);
 
-  const [showForm, setShowForm] = useState(true);
+  const [showForm, setShowForm] = useState(false);
 
-  const hadleShowForm = () => {
+  const handleShowForm = () => {
     if (showForm) {
       setShowForm(false);
     } else {
@@ -141,24 +143,32 @@ export const UserCardsPage = (props) => {
   }, [creditCards]);
 
   return (
-    <div>
-      <Sidebar isOpen={isOpen} toggle={toggle} />
-      <ContentWrapper className="content-cards-wrapper">
-        <CreditCardAddWrapper>
-          {showForm ? (
-            <CardAddForm addCreditCard={addCreditCard} />
-          ) : (
-            <p>aqui no</p>
-          )}
-        </CreditCardAddWrapper>
-        <div style={{ padding: '0 2rem 2rem' }}>
-          <h1>Tus tarjetas:</h1>
+    <ContentWrapper className="content-cards-wrapper">
+    <CreditCardAddWrapper>
+        {showForm ? (
+        <CardAddForm addCreditCard={addCreditCard} />
+        ) : (
+        <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-end'}}>
+            <MainTitle fontSize='1.3rem' marginRight='2rem' noMarginBottom>¿Quiéres añadir una nueva targeta?</MainTitle>
+            <Btn
+                onClick={(e)=>{
+                    e.preventDefault();
+                    handleShowForm()
+                }}
+                notMarginTop
+                marginRight='2rem'
+            >
+                Añadir
+            </Btn>
         </div>
+        )}
+    </CreditCardAddWrapper>
 
-        {creditCards.map((c, i) => {
-          return <CreditCard card={c} key={i} />;
-        })}
-      </ContentWrapper>
-    </div>
+    <MainTitle>Tus tarjetas:</MainTitle>
+
+    {creditCards.map((c, i) => {
+        return <CreditCard card={c} key={i} />;
+    })}
+    </ContentWrapper>
   );
 };
