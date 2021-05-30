@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+
+import {User} from './../components/User/User';
 
 export const UserPage = () => {
     return (
         <>
-            <h1>User Page</h1>   
+            <User />
         </>
     )
 }
