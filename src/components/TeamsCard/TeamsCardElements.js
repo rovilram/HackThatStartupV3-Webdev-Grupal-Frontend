@@ -66,4 +66,4 @@ export const Btn = styled.button`
     cursor: pointer;
     color: var(--black);
     width: max-content
-`
+`;

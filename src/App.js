@@ -11,6 +11,7 @@ import { SignupPage } from './Pages/SignupPage';
 
 import { LoggedProvider } from './context/loggedContext';
 import { TeamsView } from './Pages/TeamsView';
+import { CreditsCardPage } from './Pages/CreditCardsPage';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
             <Route exact path='/' component={InitPage} />
             <Route exact path='/home' component={HomePage} />
             <Route exact path='/my_teams' component={TeamsView} />
+            <Route exact path='/my_cards' component={CreditsCardPage} />
             <Route exact path='/detail' component={DetailPage} />
             <Route exact path='/signup' component={SignupPage} />
             
