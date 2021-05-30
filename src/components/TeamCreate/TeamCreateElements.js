@@ -12,6 +12,7 @@ export const TeamContainer = styled.form`
 export const TeamWrapper = styled.div`
     width: 90%;
     margin: 0 auto;
+    background: lightblue;
 `
 
 export const TeamTitle = styled.h1`

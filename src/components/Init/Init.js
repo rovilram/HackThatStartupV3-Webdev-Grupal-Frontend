@@ -72,7 +72,6 @@ export const Init = () => {
                     setError('')
                 }, 3000);
             } else {
-                console.log(response.data);
                 setLogged(true);
                 history.push('/home');
             }

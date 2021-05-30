@@ -5,9 +5,9 @@ export const TeamCreatePage = () => {
 
 
     return (
-        <>
+        <div style={{ marginLeft: "20%" }}>
             <TeamCreate />
-        </>
+        </div>
     );
 
 };

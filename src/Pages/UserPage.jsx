@@ -1,9 +1,13 @@
-import React from 'react'
+import { useEffect } from 'react';
 
 export const UserPage = () => {
+
+    useEffect(()=> {
+        // getUserData();
+    }, []);
     return (
-        <>
-            <h1>User Page</h1>   
-        </>
+        <div style={{ marginLeft: "20%" }}>
+            <h1>User Page</h1>
+        </div>
     )
 }
