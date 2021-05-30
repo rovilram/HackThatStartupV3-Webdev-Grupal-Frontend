@@ -10,6 +10,7 @@ import { InitPage } from './Pages/InitPage';
 import { SignupPage } from './Pages/SignupPage';
 
 import { LoggedProvider } from './context/loggedContext';
+import { TeamsView } from './Pages/TeamsView';
 
 function App() {
 
@@ -17,9 +18,9 @@ function App() {
 
   return (
 
-    <>
+    <> <TeamsView/>
 
-      <LoggedProvider value={ {logged, setLogged} } >
+    {/*  <LoggedProvider value={ {logged, setLogged} } >
 
           <Router>
           
@@ -30,7 +31,7 @@ function App() {
             
           </Router>
 
-      </LoggedProvider>
+      </LoggedProvider>*/}
 
       </>
   );
