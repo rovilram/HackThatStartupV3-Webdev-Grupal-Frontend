@@ -55,6 +55,7 @@ export const Init = () => {
         if(mail.mail === 'chris@io.com'  && pass.pass === 'nuwe') {
             setLogged(true);
             history.push('/home');
+            
         } else {
             setError(true);
             setTimeout(() => {
