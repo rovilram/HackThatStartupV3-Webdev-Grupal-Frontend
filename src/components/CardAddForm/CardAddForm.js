@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Input, InputTitle } from '../TeamCreate/TeamCreateElements';
+import { Btn, InputsWrapper, FormWrapper } from './CardAddFormElements';
 
 export const CardAddForm = () => {
 
@@ -10,23 +11,42 @@ export const CardAddForm = () => {
     const handleChangeNumTarjeta = (e) => {
         console.log(e.currentTarget.target)
     }
+    const handleChangeNombre = (e) => {
+        console.log(e.currentTarget.target)
+    }
+    const handleChangeDate = (e) => {
+        console.log(e.currentTarget.target)
+    }
+    const handleAdd = () => {
+        console.log('ola que ase');
+    }
 
     return (
-        <div className='add-card-form'>
+        <FormWrapper> 
             <div>
-                <InputTitle>Numero de tarjeta</InputTitle>
-                <Input placeholder='000000000000' type='text' maxLength={12} onChange={(e)=>handleChangeNumTarjeta(e)}/>
+                <InputsWrapper>
+                    <InputTitle>Numero de tarjeta</InputTitle>
+                    <Input placeholder='000000000000' type='text' maxLength={12} onChange={(e)=>handleChangeNumTarjeta(e)}/>
+                </InputsWrapper>
+                <InputsWrapper>
+                    <InputTitle>Nombre del titular:</InputTitle>
+                    <Input placeholder='Nombre y apellidos' type='text'  onChange={(e)=>handleChangeNombre(e)}/>
+                </InputsWrapper>
+                <InputsWrapper>
+                    <InputTitle>Fecha de caducidad:</InputTitle>
+                    <Input placeholder='00/00' type='text' onChange={(e)=>handleChangeDate(e)}/>
+                </InputsWrapper>
             </div>
-            <div>
-                <InputTitle>Nombre del titular:</InputTitle>
-                <Input placeholder='Nombre y apellidos' type='text' />
-            </div>
-            <div>
-                <InputTitle>Fecha de caducidad:</InputTitle>
-                <Input placeholder='00/00' type='text' />
-            </div>
+            <Btn
+                onClick={(e)=>{
+                    e.preventDefault();
+                    handleAdd();
+                }}
+            >
+                Añadir
+            </Btn>
             
-        </div>
+        </FormWrapper>
     )
 }
 
