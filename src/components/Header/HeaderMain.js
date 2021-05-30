@@ -14,7 +14,7 @@ import {
 
 
 
-export const HeaderMain = () => {
+export const HeaderMain = ({toggle}) => {
 
 
     return (
@@ -29,7 +29,7 @@ export const HeaderMain = () => {
                             <Logo>FakeHub</Logo>
                         </HeaderLogoBox> 
 
-                        <MobileIconBox>
+                        <MobileIconBox onClick={toggle}>
                             <FaBars />
                         </MobileIconBox>
 

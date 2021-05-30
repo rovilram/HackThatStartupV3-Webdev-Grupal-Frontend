@@ -10,7 +10,8 @@ import {
     InputBox,
     Input,
     MainBtn,
-    BtnSearch
+    BtnSearch,
+    MainTitle
 
 } from './MainElements';
 
@@ -40,6 +41,8 @@ export const Main = () => {
                 <MainWrapper>
 
                     <MainInputBox>
+
+                    <MainTitle> Busca, encuentra y selecciona a tus futuros compañeros de equipo </MainTitle>
                     
                     <InputBox>
                         <Input onChange={handleInputValue} placeholder='Who are you in GitHub?'/>
