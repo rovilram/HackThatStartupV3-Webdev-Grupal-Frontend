@@ -16,6 +16,7 @@ const ContentWrapper = styled.section`
         width: 82%;
         display: flex;
         align-items: center;
+        justify-content: center;
     }
 `;
 
@@ -23,9 +24,9 @@ export const TeamCreatePage = () => {
     
     
     return (
-        < ContentWrapper >
+        <ContentWrapper>
             <TeamCreate />
-        </ ContentWrapper >
+        </ContentWrapper>
     );
 
 };

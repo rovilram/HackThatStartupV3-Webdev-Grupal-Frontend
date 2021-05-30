@@ -71,7 +71,6 @@ export const Init = () => {
                     setError('')
                 }, 3000);
             } else {
-                console.log(response.data);
                 setLogged(true);
                 history.push('/home');
             }
@@ -106,26 +105,23 @@ export const Init = () => {
 
                     <InitMain>
 
-                        <InputBox onSubmit={handleForm}>
+                        <InputBox onSubmit={handleForm} className='input-box'>
 
                             {
                                 login
                                     ? <>
-                                        <Input type="test" name='username' value={loginData.username} onChange={handleLogin} placeholder='Username' />
-                                        <Input type='password' name='password' value={loginData.password} onChange={handleLogin} placeholder='Password' />
+                                        <Input type="test" name='username' value={loginData.username} onChange={handleLogin} placeholder='Username' isLogin/>
+                                        <Input type='password' name='password' value={loginData.password} onChange={handleLogin} placeholder='Password' isLogin />
                                     </>
 
                                     : <>
                                         {/* <Input value={userName} placeholder='Give me a user name' /> */}
-                                        <Input type="text" name="username" onChange={handleSignup} value={logupData.username} placeholder='GitHub username' />
-                                        <Input type='email' name='email' onChange={handleSignup} value={logupData.email} placeholder='GitHub email' />
-                                        <Input type='password' name='password' onChange={handleSignup} value={logupData.password} placeholder='Password' />
+                                        <Input type="text" name="username" onChange={handleSignup} value={logupData.username} placeholder='GitHub username' isLogin />
+                                        <Input type='email' name='email' onChange={handleSignup} value={logupData.email} placeholder='GitHub email' isLogin/>
+                                        <Input type='password' name='password' onChange={handleSignup} value={logupData.password} placeholder='Password' isLogin/>
                                     </>
 
                             }
-
-
-
 
                             <BtnInitBox>
                                 <BtnSearch type="submit"> Here we go </BtnSearch>
@@ -142,14 +138,8 @@ export const Init = () => {
 
                         </InputBox>
 
-
-
                     </InitMain>
-
-
-
                 </InitWrapper>
-
             </InitContainer>
         </>
     )

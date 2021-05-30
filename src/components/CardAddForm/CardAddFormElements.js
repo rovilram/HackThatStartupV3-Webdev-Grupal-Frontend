@@ -15,12 +15,12 @@ export const InputsWrapper = styled.div`
 
 export const Btn = styled.button`
     margin-top: ${(props)=> props.notMarginTop ? null : '2rem'};
-    background-color:  var(--complementary-color);
+    background-color:  var(--primary-color);
     border: none;
     padding: 1rem 3rem;
     border-radius: 2rem;
     cursor: pointer;
-    color: var(--black);
+    color: var(--white);
     width: max-content;
     font-weight: 700;
     font-size: 1.2rem;
