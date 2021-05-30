@@ -128,18 +128,19 @@ export const UserCardsPage = (props) => {
 
   useEffect(() => {
     const getCreditCardsFetch = async () => {
-      const userId = '60b359db5df7ef396ba2e648';
+      //const userId = '60b359db5df7ef396ba2e648';
       const [err, response] = await to(
-        axios.get(`http://localhost:3000/api/card/user/${userId}`),
+        axios.get(`http://localhost:3000/api/card/user`),
       );
       if (err) {
         console.error('ERROR', err);
       } else {
-        console.log(response.data);
+        console.log("ESTO DEBERIA SER DATOS DE TARJETAS",response.data);
+        setCreditCards(response.data)
       }
     };
     getCreditCardsFetch();
-    setCreditCards(fakeCreditCardsArr);
+    //setCreditCards(fakeCreditCardsArr);
   }, [creditCards]);
 
   return (
