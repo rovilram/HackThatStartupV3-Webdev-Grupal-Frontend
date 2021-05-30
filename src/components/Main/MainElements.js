@@ -30,11 +30,13 @@ export const MainTitle = styled.h1`
     text-align: center;
     margin-bottom: 2rem;
     height: auto;
-    font-size: 1.8rem;
+    font-size: ${(props)=> props.fontSize? props.fontSize : '1.8rem'};
  
     @media all and (min-width: 960px) {
         width:${(props)=> props.limitedWidth ? props.limitedWidth : null};
         font-size: 2.5rem;
+        margin-right: ${(props)=> props.marginRight ? props.marginRight : null};
+        margin-bottom: ${(props)=> props.noMarginBottom ? '0' : '2rem'};
     }
 
 `
