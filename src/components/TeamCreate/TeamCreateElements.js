@@ -18,6 +18,11 @@ export const TeamTitle = styled.h1`
     color: var(--tertiary-color);
     padding: 2rem 0;
     text-align: center;
+    text-transform: uppercase;
+
+    @media screen and (min-width: 960px) {
+        padding: 4rem 0;
+    }
 `
 
 export const InputFieldBox = styled.div`
@@ -26,11 +31,22 @@ export const InputFieldBox = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 1rem 0;
+
+    @media screen and (min-width: 960px) {
+        flex-direction: row;
+        justify-content: center;
+        padding: 6rem 0;
+    }
     
 `
 
 export const InputTitle = styled.h3`
     margin-bottom: 1.2rem;
+
+    @media screen and (min-width: 960px) {
+        margin-right: 3rem;
+        font-size: 1.4rem;
+    }
 `
 
 export const Input = styled.input`

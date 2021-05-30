@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 
 import {
 
@@ -7,14 +8,22 @@ import {
     CloseIcon,
     SidebarWrapper,
     SidebarMenu,
-    SidebarLink
+    SidebarLink,
+    SideBarSubLink
 
 
 } from './SidebarElements';
 
 export const Sidebar = ({isOpen, toggle}) => {
 
-    
+    let history = useHistory();
+
+    const goToCreateTeam = () => history.push('/teampage')
+    const goToManageTeam = () => history.push('/my_teams')
+    const goToUserPage = () => history.push('/userpage')
+    const goToUserCards = () => history.push('/usercards')
+    const goToInit = () => history.push('/')
+    const goToHome = () => history.push('/home')
 
     return (
         <>
@@ -27,12 +36,25 @@ export const Sidebar = ({isOpen, toggle}) => {
                 <SidebarWrapper>
 
                     <SidebarMenu>
-
-                        <SidebarLink> Equipos </SidebarLink>
-
-                        <SidebarLink> Usuarios </SidebarLink>
-
+                        <SidebarLink onClick={goToHome}> Home </SidebarLink>
                     </SidebarMenu>
+
+                    <SidebarMenu>
+                        <SidebarLink> Equipos </SidebarLink>
+                        <SideBarSubLink onClick={goToCreateTeam}> Crea </SideBarSubLink>
+                        <SideBarSubLink onClick={goToManageTeam}> Gestiona </SideBarSubLink>
+                    </SidebarMenu>
+
+                    <SidebarMenu>
+                        <SidebarLink> Usuario </SidebarLink>
+                        <SideBarSubLink onClick={goToUserCards}> Tus tarjetas </SideBarSubLink>
+                        <SideBarSubLink onClick={goToUserPage}> Tu usuario </SideBarSubLink>
+                    </SidebarMenu>
+
+                    <SidebarMenu>
+                        <SidebarLink onClick={goToInit}> Log out </SidebarLink>
+                    </SidebarMenu>
+
 
                     
 
