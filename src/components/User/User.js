@@ -1,79 +1,91 @@
-import React from 'react';
-import {ImPencil} from 'react-icons/im';
-import {AiOutlineCloseCircle} from 'react-icons/ai';
+import React, { useState, useEffect } from 'react';
+import { ImPencil } from 'react-icons/im';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
+import to from 'await-to-js';
+import axios from 'axios';
 
-import { FieldBox, Text, UserContainer, Field, Teams, TeamsBox, Wrapper } from './UserElements';
-
+import {
+  FieldBox,
+  Text,
+  UserContainer,
+  Field,
+  Teams,
+  TeamsBox,
+  Wrapper,
+} from './UserElements';
 
 const fakeData = {
-    name: 'Maikel Nait',
-    mail: 'maikelnait@io.com',
-    github: 'ershulito13',
-    avatar: 'Avatar de github',
-    teams: ['los manporreros', 'cuñaos', 'solteros con salero']
-}
+  username: 'Maikel Nait',
+  email: 'maikelnait@io.com',
+  repos: 22,
+  teams: ['los manporreros', 'cuñaos', 'solteros con salero'],
+};
 
 export const User = () => {
+  const [userData, setUserData] = useState({});
 
+  const userDataFetch = async () => {
+    const userId = '60b359db5df7ef396ba2e648';
+    const [err, response] = await to(
+      axios.get(`http://localhost:3000/api/user/${userId}`),
+    );
+    if (err) {
+      console.error('ERROR', err);
+    } else {
+      console.log(response.data[0]);
+    }
+    //TODO si no funciona bien el fetch mete datos mokeados
+    const newUserData = (response && response.data[0] )|| fakeData;
+    setUserData(newUserData);
+  };
 
-    return (
-        <>
-            <UserContainer>
+  useEffect(() => {
+    userDataFetch();
+  }, []);
 
-                <FieldBox>
-                    <Text> Nombre de usuario </Text>
-                    <Wrapper>
-                        <Field> {fakeData.name} </Field>
-                        <ImPencil />
-                    </Wrapper>
+  return (
+    <>
+      <UserContainer>
+        <FieldBox>
+          <Text> Nombre de usuario </Text>
+          <Wrapper>
+            <Field> {userData.username} </Field>
+            {/* <ImPencil /> */}
+          </Wrapper>
+        </FieldBox>
 
-                </FieldBox>
+        <FieldBox>
+          <Text> Correo electrónico </Text>
+          <Wrapper>
+            <Field> {userData.email} </Field>
+            {/* <ImPencil /> */}
+          </Wrapper>
+        </FieldBox>
 
-                <FieldBox>
-                    <Text> Nombre de usuario </Text>
-                    <Wrapper>
-                        <Field> {fakeData.mail} </Field>
-                        <ImPencil />
-                    </Wrapper>
+        <FieldBox>
+          <Text> Número de repositorios</Text>
+          <Wrapper>
+            <Field> {userData.repos} </Field>
+            {/* <ImPencil /> */}
+          </Wrapper>
+        </FieldBox>
 
-                </FieldBox>
-                
-                <FieldBox>
-                    <Text> Nombre de usuario </Text>
-                    <Wrapper>
-                        <Field> {fakeData.github} </Field>
-                        <ImPencil />
-                    </Wrapper>
+{/*         <FieldBox>
+          <Text> Equipos </Text>
 
-                </FieldBox>
-
-                <FieldBox>
-                    <Text> Nombre de usuario </Text>
-                    <Field> {fakeData.avatar} </Field>
-                </FieldBox>
-
-                <FieldBox>
-                    <Text> Equipos </Text>
-
-                    { fakeData.teams.map( cur => {
-                        return (
-
-                            <>
-                                <TeamsBox>
-                                    <Teams> {cur} </Teams>
-                                    <AiOutlineCloseCircle color='red' fontSize='1.2rem' />
-                                </TeamsBox>
-
-                            </>
-                        )
-
-                    }) }
-
-                </FieldBox>
-
-               
-            </UserContainer>
-        </>
-    )
-}
-
+          {userData.teams &&
+            userData.teams.map((cur) => {
+              return (
+                <>
+                  <TeamsBox>
+                    <Teams> {cur} </Teams>
+                    <AiOutlineCloseCircle color="red" fontSize="1.2rem" />
+                  </TeamsBox>
+                </>
+              );
+            })}
+        </FieldBox> */}
+      </UserContainer>
+    </>
+  );
+};

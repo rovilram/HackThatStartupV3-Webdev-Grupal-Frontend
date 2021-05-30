@@ -51,7 +51,7 @@ export const CardAddForm = ({ addCreditCard }) => {
         <InputsWrapper>
           <InputTitle>Fecha de caducidad:</InputTitle>
           <Input
-            placeholder="00/00"
+            placeholder="00/00/0000"
             type="text"
             onChange={(e) => handleChangeDate(e)}
           />

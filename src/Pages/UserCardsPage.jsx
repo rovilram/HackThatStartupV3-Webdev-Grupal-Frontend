@@ -149,7 +149,7 @@ export const UserCardsPage = (props) => {
         <CardAddForm addCreditCard={addCreditCard} />
         ) : (
         <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-end'}}>
-            <MainTitle fontSize='1.3rem' marginRight='2rem' noMarginBottom>¿Quiéres añadir una nueva targeta?</MainTitle>
+            <MainTitle fontSize='1.3rem' marginRight='2rem' noMarginBottom>¿Quiéres añadir una nueva tarjeta?</MainTitle>
             <Btn
                 onClick={(e)=>{
                     e.preventDefault();
