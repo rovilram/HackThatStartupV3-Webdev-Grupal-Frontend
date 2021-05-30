@@ -17,6 +17,10 @@ export const Header = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (min-width: 960px) {
+        justify-content: center;
+    }
 `
 
 export const HeaderLogoBox = styled.div`
