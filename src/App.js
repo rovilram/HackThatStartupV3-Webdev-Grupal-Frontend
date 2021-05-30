@@ -8,6 +8,7 @@ import { HomePage } from './Pages/HomePage';
 import { DetailPage } from './Pages/DetailPage';
 import { InitPage } from './Pages/InitPage';
 import { SignupPage } from './Pages/SignupPage';
+import { TeamCreatePage } from './Pages/TeamCreatePage';
 
 import { LoggedProvider } from './context/loggedContext';
 
@@ -27,6 +28,7 @@ function App() {
             <Route exact path='/home' component={HomePage} />
             <Route exact path='/detail' component={DetailPage} />
             <Route exact path='/signup' component={SignupPage} />
+            <Route exact path='/teampage' component={TeamCreatePage} />
             
           </Router>
 
