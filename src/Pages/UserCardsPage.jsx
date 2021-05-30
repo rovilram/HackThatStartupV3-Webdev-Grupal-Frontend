@@ -130,13 +130,18 @@ export const UserCardsPage = (props) => {
     const getCreditCardsFetch = async () => {
       //const userId = '60b359db5df7ef396ba2e648';
       const [err, response] = await to(
-        axios.get(`http://localhost:3000/api/card/user`),
+        axios.get(`http://localhost:3000/api/card/user`,  {
+            username: "rovilram",
+            password:"1234"
+        }),
       );
       if (err) {
         console.error('ERROR', err);
       } else {
         console.log("ESTO DEBERIA SER DATOS DE TARJETAS",response.data);
-        setCreditCards(response.data)
+        setCreditCards(
+          Array.isArray(response.data) ? response.data : fakeCreditCardsArr,
+        );
       }
     };
     getCreditCardsFetch();
