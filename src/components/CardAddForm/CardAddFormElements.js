@@ -51,7 +51,7 @@ export const InputTitle = styled.h3`
 
 export const Input = styled.input`
     color: var(--tertiary-color);
-    width: 100%;
+    width: 15rem;
     padding: .6rem;
     border-radius: 2rem;
     outline: none;
@@ -60,9 +60,7 @@ export const Input = styled.input`
     text-align: center;
     margin-bottom: 1.2rem;
     align-self: center;
-    @media all and (min-width: 960px) {
-        width:15rem;
-    }
+    
 
     &::placeholder {
         font-style: italic;
