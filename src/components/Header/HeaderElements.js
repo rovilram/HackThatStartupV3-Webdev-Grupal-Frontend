@@ -27,7 +27,7 @@ export const HeaderLogoBox = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
-    padding-top: ${(props)=> props.isSidebar ? '4rem' : null};
+    padding-bottom: ${(props)=> props.isSidebar ? '4rem' : null};
 
 `
 export const Logo = styled.h1`
