@@ -3,13 +3,13 @@
 
 :root {
     --white: #ffffff;
-    --black: #000000;
+    --black: rgba(0,0,0,0.7);
     --primary-color: #34626C;
     
     --secondary-color: #839B97;
     
     --tertiary-color: #CFD3CE;
-    --complementary-color: #FFED99;
+    --complementary-color: #EBDF67;
 }
 
 * {

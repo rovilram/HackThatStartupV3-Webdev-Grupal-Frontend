@@ -8,8 +8,15 @@ export const MainContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-
     height: 90vh;
+    width: 100%;
+    @media all and (min-width: 960px) {
+        height:100vh;
+        position:absolute;
+        top: 0;
+        right: 0;
+        width: 81%;
+    }
 `
 
 export const MainWrapper = styled.div`
@@ -18,11 +25,20 @@ export const MainWrapper = styled.div`
 `
 
 export const MainTitle = styled.h1`
-    color: var(--white);
-    width: 30rem;
+    color: rgba(0,0,0,0.7);
+    width: auto;
     text-align: center;
     margin-bottom: 2rem;
-    height: 10rem;
+    height: auto;
+    font-size: ${(props)=> props.fontSize? props.fontSize : '1.8rem'};
+ 
+    @media all and (min-width: 960px) {
+        width:${(props)=> props.limitedWidth ? props.limitedWidth : null};
+        font-size: 2.5rem;
+        margin-right: ${(props)=> props.marginRight ? props.marginRight : null};
+        margin-bottom: ${(props)=> props.noMarginBottom ? '0' : '2rem'};
+    }
+
 `
 
 export const MainInputBox = styled.div`
@@ -36,16 +52,16 @@ export const InputBox = styled.div`
 `
 
 export const Input = styled.input`
-    color: var(--tertiary-color);
-    width: 15rem;
+    color: var(--primary-color);
+    width: 18rem;
     padding: .6rem;
     border-radius: 2rem;
     outline: none;
-    border: 2px solid var(--white);
+    border: 2px solid var(--primary-color);
     font-size: 1.2rem;
     text-align: center;
     margin-bottom: 1.2rem;
-    
+    cursor: pointer;
 
     &::placeholder {
         font-style: italic;
@@ -57,19 +73,21 @@ export const Input = styled.input`
 `
 
 export const MainBtn = styled.button`
-    background: none;
-    border: 1px solid var(--white);
-    padding: .4rem 2rem;
+    background-color: var(--primary-color);
+    border:  none;
+    padding: 1rem 2rem;
     border-radius: 2rem;
     cursor: pointer;
-    color: var(--white);
+    color: #FFFFFF;
+    font-size: 1.5rem;
 `
 
 export const BtnSearch = styled.button`
-    background: none;
-    border: 1px solid var(--white);
-    padding: .2rem 1rem;
+   background-color: var(--primary-color);
+    border:  none;
+    padding: 1rem 2rem;
     border-radius: 2rem;
     cursor: pointer;
-    color: var(--white);
+    color: #FFFFFF;
+    font-size: 1.5rem;
 `

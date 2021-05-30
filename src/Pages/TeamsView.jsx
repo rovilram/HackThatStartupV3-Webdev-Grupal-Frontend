@@ -1,21 +1,34 @@
 import React, {useState} from 'react';
 import { TeamsCard } from '../components/TeamsCard/TeamsCard';
-import {Sidebar} from './../components/Sidebar/Sidebar';
+import {MainTitle} from './../components/Main/MainElements';
 import styled from 'styled-components';
 
 const ContentWrapper = styled.section`
 background-color: var(--tertiary-color);
-padding: 2rem;
+padding: 2rem 2rem 2rem;
 min-height: 100vh;
 
 @media all and (min-width: 960px) {
-    padding:4rem;
+    padding: 8rem 2rem 2rem;
     position: absolute;
     top: 0;
     right: 0;
     width: 82%;
+    display: flex;
+    align-items: center;
 }
 
+`;
+
+const CardWrapper = styled.div`
+    margin-top: 2rem;
+    @media all and (min-width: 960px) {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+        margin-top: 4rem;
+    }
 `;
 
 const fakeTeamsArray = [
@@ -51,22 +64,25 @@ export const TeamsView = (props) => {
     const toggle = () => setIsOpen(!isOpen);
    
     return (
-        <div>
-            <Sidebar isOpen={isOpen} toggle={toggle} />
-            <ContentWrapper>
-                {
-                    fakeTeamsArray.map((t,i)=>{
-                        return(
-                            <TeamsCard
-                                teamName={t.name}
-                                teamDescription={t.description}
-                                teamImageUrl = {t.imageUrl}
-                            />
-                        )
-                    })
+        <ContentWrapper>
+            <div>
+                <MainTitle>Estos son los equipos que has creado</MainTitle>
+                <CardWrapper>
+                    {
+                        fakeTeamsArray.map((t,i)=>{
+                            return(
+                                <TeamsCard
+                                    teamName={t.name}
+                                    teamDescription={t.description}
+                                    teamImageUrl = {t.imageUrl}
+                                />
+                            )
+                        })
 
-                }
-           </ContentWrapper>
-        </div>
+                    }
+                </CardWrapper>
+            </div>
+        </ContentWrapper>
+
     )
 }

@@ -28,9 +28,9 @@ export const CardAddForm = ({ addCreditCard }) => {
 
   return (
     <FormWrapper>
-      <div>
+      <div style={{width: 'max-content', padding: '0 2rem'}}>
         <InputsWrapper>
-          <InputTitle>Numero de tarjeta</InputTitle>
+          <InputTitle>Número de tarjeta:</InputTitle>
           <Input
             placeholder="000000000000"
             type="text"
@@ -46,6 +46,8 @@ export const CardAddForm = ({ addCreditCard }) => {
             onChange={(e) => handleChangeNombre(e)}
           />
         </InputsWrapper>
+      </div>
+      <div style={{width: 'max-content', padding: '0 2rem', textAlign: 'right'}}>
         <InputsWrapper>
           <InputTitle>Fecha de caducidad:</InputTitle>
           <Input
@@ -54,15 +56,16 @@ export const CardAddForm = ({ addCreditCard }) => {
             onChange={(e) => handleChangeDate(e)}
           />
         </InputsWrapper>
+      
+        <Btn
+          onClick={(e) => {
+            e.preventDefault();
+            handleAdd();
+          }}
+        >
+          Añadir
+        </Btn>
       </div>
-      <Btn
-        onClick={(e) => {
-          e.preventDefault();
-          handleAdd();
-        }}
-      >
-        Añadir
-      </Btn>
     </FormWrapper>
   );
 };

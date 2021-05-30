@@ -55,7 +55,8 @@ export const SidebarMenu = styled.ul`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 10rem;
+    height: auto;
+    padding-bottom: 2rem;
 `
 
 export const SidebarLink = styled.a`

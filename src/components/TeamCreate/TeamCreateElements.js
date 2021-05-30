@@ -41,10 +41,11 @@ export const InputFieldBox = styled.div`
     
 `
 
-export const InputTitle = styled.h3`
+export const InputTitle = styled.p`
     margin-bottom: 1.2rem;
-
-    @media screen and (min-width: 960px) {
+    color: rgba(0,0,0,0.7);
+    font-size: 1.4rem;
+    @media screen and (min-width: 960px) { 
         margin-right: 3rem;
         font-size: 1.4rem;
     }
@@ -53,10 +54,10 @@ export const InputTitle = styled.h3`
 export const Input = styled.input`
     color: var(--tertiary-color);
     width: 100%;
-    padding: .6rem;
+    padding: 1rem 2rem;
     border-radius: 2rem;
     outline: none;
-    border: 2px solid var(--tertiary-color);
+    border: none;
     font-size: 1.2rem;
     text-align: center;
     margin-bottom: 1.2rem;
@@ -78,7 +79,7 @@ export const InputUrl = styled.input`
     padding: .6rem;
     border-radius: 2rem;
     outline: none;
-    border: 2px solid var(--tertiary-color);
+    border: none;
     font-size: 1.2rem;
     text-align: center;
     margin-bottom: 1.2rem;
