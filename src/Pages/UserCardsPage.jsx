@@ -78,6 +78,7 @@ const fakeCreditCardsArr =[
 export const UserCardsPage = (props) => {
 
     const [isOpen, setIsOpen] = useState(false);
+    const [creditCards, setCreditCards] = useState([])
     const toggle = () => setIsOpen(!isOpen);
 
     const [ showForm, setShowForm ] = useState(true);
@@ -90,35 +91,31 @@ export const UserCardsPage = (props) => {
         }
         
     }
+
+    const addCreditCard = (newCreditCard) => {
+        setCreditCards([...creditCards, newCreditCard]);
+    }
+
+    useEffect(() => {
+        // aquí irá fech a las credit cards
+        setCreditCards(fakeCreditCardsArr);
+    }, [])
    
     return (
-        <div>
-            <Sidebar isOpen={isOpen} toggle={toggle} />
-            <ContentWrapper className='content-cards-wrapper'>
-                <CreditCardAddWrapper>
-                    { showForm ? (
-                        <CardAddForm/>
-                    ) : (
-                        <p>aqui no</p>
-                    )}
-                </CreditCardAddWrapper>
-                <div style={{padding: '0 2rem 2rem'}}>
-                    <h1>Tus tarjetas:</h1>
-                </div>
-                
+      <div>
+        <Sidebar isOpen={isOpen} toggle={toggle} />
+        <ContentWrapper className="content-cards-wrapper">
+          <CreditCardAddWrapper>
+            {showForm ? <CardAddForm addCreditCard ={addCreditCard}/> : <p>aqui no</p>}
+          </CreditCardAddWrapper>
+          <div style={{ padding: '0 2rem 2rem' }}>
+            <h1>Tus tarjetas:</h1>
+          </div>
 
-                {
-                    fakeCreditCardsArr.map((c,i)=>{
-                        return(
-                            <CreditCard
-                                card={c}
-                                key={i}
-                            />
-                        )
-                    })
-
-                }
-           </ContentWrapper>
-        </div>
-    )
+          {creditCards.map((c, i) => {
+            return <CreditCard card={c} key={i} />;
+          })}
+        </ContentWrapper>
+      </div>
+    );
 }
