@@ -22,10 +22,6 @@ const ContentWrapper = styled.section`
 `;
 
 export const UserPage = () => {
-
-    useEffect(()=> {
-        // getUserData();
-    }, []);
     return (
         <ContentWrapper>
             <User />
