@@ -2,17 +2,12 @@ import styled from 'styled-components';
 
 
 export const TeamContainer = styled.form`
-    height: 100vh;
-
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-`
-
-export const TeamWrapper = styled.div`
-    width: 90%;
-    margin: 0 auto;
-    background: lightblue;
+    width: 100%;
+    max-width: 60rem;
 `
 
 export const TeamTitle = styled.h1`
@@ -30,15 +25,9 @@ export const InputFieldBox = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 1rem 0;
-
-    @media screen and (min-width: 960px) {
-        flex-direction: row;
-        justify-content: center;
-        padding: 6rem 0;
-    }
-    
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem 0;    
 `
 
 export const InputTitle = styled.p`
@@ -52,7 +41,7 @@ export const InputTitle = styled.p`
 `
 
 export const Input = styled.input`
-    color: var(--tertiary-color);
+    color: rgba(0,0,0,0.7);
     width: 100%;
     padding: 1rem 2rem;
     border-radius: 2rem;
@@ -64,26 +53,8 @@ export const Input = styled.input`
     align-self: center;
     @media all and (min-width: 960px) {
         width:15rem;
+        align-self: flex-start;
     }
-
-    &::placeholder {
-        font-style: italic;
-        font-size: 1rem;
-        opacity: .4;
-    }
-`
-
-export const InputUrl = styled.input`
-    color: var(--tertiary-color);
-    min-width: 25rem;
-    padding: .6rem;
-    border-radius: 2rem;
-    outline: none;
-    border: none;
-    font-size: 1.2rem;
-    text-align: center;
-    margin-bottom: 1.2rem;
-    
 
     &::placeholder {
         font-style: italic;
@@ -93,11 +64,20 @@ export const InputUrl = styled.input`
 `
 
 export const InputTextArea = styled.textarea`
-    width: 80%;
+    width: 100%;
     min-height: 8rem;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
     outline: none;
-    padding: 1rem;
+    border: none;
     resize: none;
+
+
+    &::placeholder {
+        font-style: italic;
+        font-size: 1rem;
+        opacity: .4;
+    }
 `
 
 export const BtnAdd = styled.button`
@@ -109,7 +89,11 @@ export const BtnAdd = styled.button`
 `
 
 export const InputBtnBox = styled.div`
-
+    width: 100%;
+    @media all and (min-width: 960px) {
+        width: auto;
+        display: flex;
+    }
 `
 
 export const UserBox = styled.div`
