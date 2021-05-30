@@ -18,20 +18,21 @@ function App() {
 
   return (
 
-    <> <TeamsView/>
+    <>
 
-    {/*  <LoggedProvider value={ {logged, setLogged} } >
+     <LoggedProvider value={ {logged, setLogged} } >
 
           <Router>
           
             <Route exact path='/' component={InitPage} />
             <Route exact path='/home' component={HomePage} />
+            <Route exact path='/my_teams' component={TeamsView} />
             <Route exact path='/detail' component={DetailPage} />
             <Route exact path='/signup' component={SignupPage} />
             
           </Router>
 
-      </LoggedProvider>*/}
+      </LoggedProvider>
 
       </>
   );

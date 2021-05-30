@@ -33,4 +33,8 @@ export const MobileIconBox = styled.div`
     color: var(--white);
     font-size: 1.6rem;
     cursor: pointer;
+
+    @media screen and (min-width: 960px) {
+        display: none;
+    }
 `

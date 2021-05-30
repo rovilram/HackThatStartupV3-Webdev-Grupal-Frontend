@@ -17,6 +17,14 @@ export const MainWrapper = styled.div`
     margin: 0 auto;
 `
 
+export const MainTitle = styled.h1`
+    color: var(--white);
+    width: 30rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    height: 10rem;
+`
+
 export const MainInputBox = styled.div`
     display: flex;
     flex-direction: column;
@@ -36,6 +44,7 @@ export const Input = styled.input`
     border: 2px solid var(--white);
     font-size: 1.2rem;
     text-align: center;
+    margin-bottom: 1.2rem;
     
 
     &::placeholder {
