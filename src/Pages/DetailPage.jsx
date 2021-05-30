@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { Detail } from '../components/Detail/Detail';
+
 
 export const DetailPage = () => {
     return (
-        <div>
-            <h1>detail</h1>
-        </div>
+        <>
+            <Detail />
+        </>
     )
 }
