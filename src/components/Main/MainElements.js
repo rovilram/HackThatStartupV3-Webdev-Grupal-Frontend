@@ -83,11 +83,11 @@ export const MainBtn = styled.button`
 `
 
 export const BtnSearch = styled.button`
-    background: none;
-    border: 1px solid  var(--primary-color);
-    padding: .2rem 1rem;
+   background-color: var(--primary-color);
+    border:  none;
+    padding: 1rem 2rem;
     border-radius: 2rem;
     cursor: pointer;
-    color: var(--primary-color);
-    font-size: 2rem;
+    color: #FFFFFF;
+    font-size: 1.5rem;
 `

@@ -2,11 +2,12 @@ import styled from 'styled-components';
 
 export const InitContainer = styled.div`
     height: 100vh;
-    background-color: lightblue;
+    background-color:  var(--tertiary-color);
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    align-items:center;
 
 `
 
@@ -15,18 +16,8 @@ export const InitWrapper = styled.div`
     margin: 0 auto;
 `
 
-export const InitHeader = styled.div`
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`
-
-export const InitTitle = styled.h1`
-
-`
 export const InitMain = styled.div`
-    height: 90vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -55,10 +46,10 @@ export const SignupAdvice = styled.div`
     text-align: center;
 `
 export const Advice = styled.p`
-    color: green;
+    color: rgba(0,0,0,0.7);
 
     & span {
-        border: 1px solid #fff;
+        border: 1px solid var(--secondary-color);
         padding: .4rem 1rem;
         border-radius: 2rem;
         margin: 0 .2rem;
