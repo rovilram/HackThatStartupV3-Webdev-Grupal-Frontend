@@ -53,7 +53,7 @@ export const Input = styled.input`
     align-self: center;
     @media all and (min-width: 960px) {
         width:15rem;
-        align-self: flex-start;
+        align-self: ${(props)=> props.isLogin ? 'center' : 'flex-start'} ;
     }
 
     &::placeholder {
