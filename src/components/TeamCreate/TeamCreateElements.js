@@ -21,7 +21,7 @@ export const TeamTitle = styled.h1`
     text-transform: uppercase;
 
     @media screen and (min-width: 960px) {
-        padding: 4rem 0;
+        padding: 4rem;
     }
 `
 

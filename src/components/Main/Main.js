@@ -7,31 +7,19 @@ import {
     MainContainer,
     MainWrapper,
     MainInputBox,
-    InputBox,
-    Input,
-    MainBtn,
-    BtnSearch,
-    MainTitle
+    MainTitle,
+    MainBtn
 
 } from './MainElements';
 
 export const Main = () => {
 
-    const [value, setValue] = useState('');
+    
 
     // Referencia al useHistory
     let history = useHistory();
-
-    // Registrar el valor del input
-    const handleInputValue = (e) => setValue(e.target.value)
-
-    // Enviar la petición a la API de GitHub
-    const handleFetch = async () => {
-        const response = await fetch(`https://api.github.com/users/${value}/repos`);
-        const data = await response.json();
-        console.log(data);
-    }
     
+    const goToCreateTeam = () => history.push('/teampage')
 
 
     return (
@@ -43,14 +31,7 @@ export const Main = () => {
                     <MainInputBox>
 
                     <MainTitle> Busca, encuentra y selecciona a tus futuros compañeros de equipo </MainTitle>
-                    
-                    <InputBox>
-                        <Input onChange={handleInputValue} placeholder='Who are you in GitHub?'/>
-                    </InputBox>
-
-                    <MainBtn>
-                        <BtnSearch onClick={handleFetch}> Search </BtnSearch>
-                    </MainBtn>
+                    <MainBtn onClick={goToCreateTeam}> Comienza </MainBtn>
 
                     </MainInputBox>
 

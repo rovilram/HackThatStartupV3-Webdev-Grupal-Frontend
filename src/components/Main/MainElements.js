@@ -56,8 +56,13 @@ export const Input = styled.input`
     
 `
 
-export const MainBtn = styled.div`
-    
+export const MainBtn = styled.button`
+    background: none;
+    border: 1px solid var(--white);
+    padding: .4rem 2rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    color: var(--white);
 `
 
 export const BtnSearch = styled.button`
