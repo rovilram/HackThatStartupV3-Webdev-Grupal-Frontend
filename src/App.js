@@ -1,5 +1,5 @@
 
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import './App.css';
 
 import {BrowserRouter as Router, Route} from 'react-router-dom';
@@ -16,6 +16,9 @@ import { TeamsView } from './Pages/TeamsView';
 import { UserCardsPage } from './Pages/UserCardsPage';
 import { HeaderMain } from './components/Header/HeaderMain';
 import { Sidebar } from './components/Sidebar/Sidebar';
+import {
+  useWindowWidth,
+} from '@react-hook/window-size';
 
 function App() {
 
@@ -23,6 +26,8 @@ function App() {
 
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+
+  const width = useWindowWidth();
 
   return (
 
@@ -33,7 +38,12 @@ function App() {
           <Router>
 
             <Sidebar isOpen={isOpen} toggle={toggle} />
-            <HeaderMain toggle={toggle}/>
+            {
+              width <= 960 ? (
+                <HeaderMain toggle={toggle}/>
+              ) : null
+            }
+            
           
             <Route exact path='/' component={InitPage} />
             <Route exact path='/home' component={HomePage} />

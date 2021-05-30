@@ -26,7 +26,7 @@ export const HeaderMain = ({toggle}) => {
                     <Header>
 
                         <HeaderLogoBox>
-                            <Logo>FakeHub</Logo>
+                            <Logo>Fake<span style={{color:'rgba(0,0,0, 0.7'}}>H</span>ub</Logo>
                         </HeaderLogoBox> 
 
                         <MobileIconBox onClick={toggle}>

@@ -2,7 +2,6 @@ import React from 'react';
 import { useHistory } from 'react-router';
 
 import {
-
     SidebarContainer,
     Icon,
     CloseIcon,
@@ -10,11 +9,15 @@ import {
     SidebarMenu,
     SidebarLink,
     SideBarSubLink
-
-
 } from './SidebarElements';
+import { HeaderLogoBox, Logo } from '../Header/HeaderElements';
+import {
+    useWindowWidth,
+  } from '@react-hook/window-size'
 
 export const Sidebar = ({isOpen, toggle}) => {
+
+    const width = useWindowWidth();
 
     let history = useHistory();
 
@@ -34,6 +37,10 @@ export const Sidebar = ({isOpen, toggle}) => {
                 </Icon>
 
                 <SidebarWrapper>
+
+                    <HeaderLogoBox isSidebar>
+                        <Logo isSidebar>Fake<span style={{color:'rgba(0,0,0, 0.7'}}>H</span>ub</Logo>
+                    </HeaderLogoBox> 
 
                     <SidebarMenu>
                         <SidebarLink onClick={goToHome}> Home </SidebarLink>

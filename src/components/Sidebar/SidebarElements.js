@@ -7,11 +7,13 @@ export const SidebarContainer = styled.aside`
     position: fixed;
     z-index: 2;
     width: 100%;
-    height: 100%;
-    background: #0d0d0d;
+    height: 100vh;
+    background: var(--primary-color);
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    text-align:left;
+    padding-left: 4rem;
     
     transition: .2s ease-in-out;
     opacity: ${( {isOpen} ) => (isOpen ? '100%'  :  '0') };
@@ -23,7 +25,6 @@ export const SidebarContainer = styled.aside`
         opacity: 1;
         top: 0;
         left: 0;
-        align-items: flex-start;
     }
 `
 
@@ -53,19 +54,19 @@ export const SidebarWrapper = styled.div`
 export const SidebarMenu = styled.ul`
     display: flex;
     flex-direction: column;
-    text-align: center;
     justify-content: space-around;
     height: 10rem;
 `
 
 export const SidebarLink = styled.a`
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content:flex-start;
     font-size: 1.8rem;
     text-decoration: none;
-    color: var(--tertiary-color);
+    color: #FFFFFF;
     cursor: pointer;
+    font-weight: 700px
     
 `
 
@@ -75,7 +76,7 @@ export const SideBarSubLink = styled.a`
     justify-content: flex-start;
     font-size: 1.2rem;
     text-decoration: none;
-    color: #fff;
+    color: var(--tertiary-color);
     cursor: pointer;
     
 `
