@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router';
 
 import {
     Btn,
@@ -10,10 +11,13 @@ import {
 
 
  export const TeamsCard = (props) => {
-     const { teamName, teamDescription, teamImageUrl, teamDetailPage } = props;
+    const { teamName, teamDescription, teamImageUrl, teamDetailPage } = props;
+
+    let history = useHistory();
      
     const handleClick = () => {
         console.log('me voy a la pagina de detalle del equipo')
+        history.push('/detail')
     }
 
     return (
