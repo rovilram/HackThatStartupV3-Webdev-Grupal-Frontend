@@ -4,6 +4,8 @@ import { CardAddForm } from '../components/CardAddForm/CardAddForm';
 import { Sidebar } from './../components/Sidebar/Sidebar';
 import styled from 'styled-components';
 import validator from 'validator';
+import to from 'await-to-js';
+import axios from 'axios';
 
 const ContentWrapper = styled.section`
   background-color: #ffffff;
@@ -89,6 +91,18 @@ export const UserCardsPage = (props) => {
     }
   };
 
+  const addCreditCardFetch = async (creditCard) => {
+    const [err, response] = await to(
+      axios.post('http://localhost:3000/api/card/', creditCard),
+    );
+    if (err) {
+      console.error('ERROR', err);
+    } else {
+      console.log(response.data);
+      setCreditCards([...creditCards, creditCard]);
+    }
+  };
+
   const addCreditCard = (newCreditCard) => {
     const validExpDate = validator.isDate(newCreditCard.expDate, {
       format: 'DD/MM/YYYY',
@@ -101,16 +115,30 @@ export const UserCardsPage = (props) => {
       no_symbols: true,
     });
 
+    // TODO: ver de donde sacar el userID
+    //newCreditCard.userId = '60b359db5df7ef396ba2e648';
+
     validExpDate &&
       validName &&
       validNumber &&
-      setCreditCards([...creditCards, newCreditCard]);
+      addCreditCardFetch(newCreditCard);
   };
 
   useEffect(() => {
-    // aquí irá fech a las credit cards
+    const getCreditCardsFetch = async () => {
+      const userId = '60b359db5df7ef396ba2e648';
+      const [err, response] = await to(
+        axios.get(`http://localhost:3000/api/card/user/${userId}`),
+      );
+      if (err) {
+        console.error('ERROR', err);
+      } else {
+        console.log(response.data);
+      }
+    };
+    getCreditCardsFetch();
     setCreditCards(fakeCreditCardsArr);
-  }, []);
+  }, [creditCards]);
 
   return (
     <div>
