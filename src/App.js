@@ -37,12 +37,19 @@ function App() {
 
           <Router>
 
-            <Sidebar isOpen={isOpen} toggle={toggle} />
             {
-              width <= 960 ? (
-                <HeaderMain toggle={toggle}/>
+              logged ? (
+                <>
+                  <Sidebar isOpen={isOpen} toggle={toggle} />
+                  {
+                    width <= 960 ? (
+                      <HeaderMain toggle={toggle}/>
+                    ) : null
+                  }
+                </>
               ) : null
             }
+           
             
           
             <Route exact path='/' component={InitPage} />
