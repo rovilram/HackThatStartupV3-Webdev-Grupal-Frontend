@@ -55,14 +55,25 @@ export const SidebarMenu = styled.ul`
     flex-direction: column;
     text-align: center;
     justify-content: space-around;
-    height: 30rem;
+    height: 10rem;
 `
 
 export const SidebarLink = styled.a`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: var(--tertiary-color);
+    cursor: pointer;
+    
+`
+
+export const SideBarSubLink = styled.a`
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1.2rem;
     text-decoration: none;
     color: #fff;
     cursor: pointer;
